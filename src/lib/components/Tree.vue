@@ -20,6 +20,7 @@
           :get-node="getNode"
           :update-node="updateNode"
           :expandable="expandable"
+          :show-prepend-node-text="showPrependNodeText"
           @delete-row="onDeleteRow"
           @node-click="onNodeClick"
           @node-expanded="onNodeExpanded"
@@ -42,6 +43,12 @@
           </template>
           <template v-if="useRowDelete" #deleteIcon>
             <slot name="deleteIcon" />
+          </template>
+          <template v-if="showPrependNodeText" #prependNodeText="{node: slotNode}">
+            <slot
+              name="prependNodeText"
+              :node="slotNode"
+            />
           </template>
           <template
             v-if="showChildCount"
@@ -137,6 +144,10 @@ export default {
     expandable: {
       type: Boolean,
       default: true,
+    },
+    showPrependNodeText: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ['nodeClick', 'nodeExpanded', 'checkboxToggle', 'update:nodes'],

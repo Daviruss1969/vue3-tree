@@ -44,6 +44,16 @@
       <span class="tree-row-txt">
         {{ node.label }}
       </span>
+      <template v-if="showPrependNodeText">
+        <slot
+          name="prependNodeText"
+          :node="node"
+        >
+          <span class="prepend-node-text">
+            add your text here
+          </span>
+        </slot>
+      </template>
       <template v-if="childCount && showChildCount">
         <slot
           name="childCount"
@@ -89,11 +99,18 @@
           :get-node="getNode"
           :update-node="updateNode"
           :expandable="expandable"
+          :show-prepend-node-text="showPrependNodeText"
           @delete-row="removedRow"
           @node-click="(item) => handleClick(item, true)"
           @toggle-checkbox="onToggleCheckbox"
           @node-expanded="onNodeExpanded"
         >
+          <template #prependNodeText="{node: slotNode}">
+            <slot
+              name="prependNodeText"
+              :node="slotNode"
+            />
+          </template>
           <template #childCount="{ count, checkedCount, childs }">
             <slot
               name="childCount"
@@ -196,6 +213,10 @@ export default {
     expandable: {
       type: Boolean,
       default: true,
+    },
+    showPrependNodeText: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ['nodeClick', 'toggleCheckbox', 'nodeExpanded', 'deleteRow'],

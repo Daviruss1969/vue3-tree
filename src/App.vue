@@ -2,7 +2,12 @@
   <Tree
     v-model:nodes="data"
     :use-checkbox="true"
-  />
+    :show-prepend-node-text="true"
+  >
+    <template #prependNodeText="{node}">
+      <p>{{ node.data.type }}</p>
+    </template>
+  </Tree>
 </template>
 
 <script>
@@ -18,22 +23,37 @@ export default {
       {
         id: 1,
         label: 'Animal',
+        data: {
+          type: 'list',
+        },
         nodes: [
           {
             id: 2,
             label: 'Dog',
+            data: {
+              type: 'string',
+            },
           },
           {
             id: 3,
             label: 'Cat',
+            data: {
+              type: 'list',
+            },
             nodes: [
               {
                 id: 4,
                 label: 'Egyptian Mau Cat',
+                data: {
+                  type: 'string',
+                },
               },
               {
                 id: 5,
                 label: 'Japanese Bobtail Cat',
+                data: {
+                  type: 'string',
+                },
               },
             ],
           },
@@ -42,6 +62,9 @@ export default {
       {
         id: 6,
         label: 'People',
+        data: {
+          type: 'list',
+        },
       },
     ]);
 

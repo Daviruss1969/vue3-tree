@@ -2,6 +2,7 @@
   "name": "vue3-tree",
   "description": "A customizable vuejs tree viewer.",
   "version": "0.11.5",
+  "prepare": "npm run build",
   "author": {
     "name": "seo.do",
     "email": "opensource@seo.do"

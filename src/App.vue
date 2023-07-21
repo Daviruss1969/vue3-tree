@@ -1,12 +1,14 @@
 <template>
   <Tree
     v-model:nodes="data"
-    :use-checkbox="true"
   >
     <template #node="{node}">
-      <p> {{ node.label }}</p>
-      <button>ceci est un button</button>
-      <p>{{ node.data.type }}</p>
+      <div v-if="node.data.button">
+        <button>{{ node.label }}</button>
+      </div>
+      <div v-else>
+        <p> {{ node.label }} -- {{ node.data.type }}</p>
+      </div>
     </template>
   </Tree>
 </template>
@@ -33,6 +35,7 @@ export default {
             label: 'Dog',
             data: {
               type: 'string',
+              button: true,
             },
           },
           {

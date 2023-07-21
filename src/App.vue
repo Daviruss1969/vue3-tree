@@ -2,9 +2,10 @@
   <Tree
     v-model:nodes="data"
     :use-checkbox="true"
-    :show-prepend-node-text="true"
   >
-    <template #prependNodeText="{node}">
+    <template #node="{node}">
+      <p> {{ node.label }}</p>
+      <button>ceci est un button</button>
       <p>{{ node.data.type }}</p>
     </template>
   </Tree>

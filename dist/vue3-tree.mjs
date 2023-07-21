@@ -191,8 +191,7 @@ const _hoisted_1$1 = {
   class: "tree-row-item-icon-wrapper"
 };
 const _hoisted_2 = { class: "tree-row-txt" };
-const _hoisted_3 = /* @__PURE__ */ createVNode("span", { class: "prepend-node-text" }, " add your text here ", -1);
-const _hoisted_4 = { class: "child-count" };
+const _hoisted_3 = { class: "child-count" };
 function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_arrow_right = resolveComponent("arrow-right");
   const _component_arrow_down = resolveComponent("arrow-down");
@@ -236,23 +235,19 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
           [vModelCheckbox, $props.node.checked]
         ]) : createCommentVNode("", true)
       ]),
-      createVNode("span", _hoisted_2, toDisplayString($props.node.label), 1),
-      $props.showPrependNodeText ? renderSlot(_ctx.$slots, "prependNodeText", {
-        key: 1,
-        node: $props.node
-      }, () => [
-        _hoisted_3
-      ]) : createCommentVNode("", true),
+      renderSlot(_ctx.$slots, "node", { node: $props.node }, () => [
+        createVNode("span", _hoisted_2, toDisplayString($props.node.label), 1)
+      ]),
       $setup.childCount && $props.showChildCount ? renderSlot(_ctx.$slots, "childCount", {
-        key: 2,
+        key: 1,
         count: $setup.childCount,
         checkedCount: $setup.checkedChildCount,
         childs: $props.node.nodes
       }, () => [
-        createVNode("span", _hoisted_4, toDisplayString($setup.childCount), 1)
+        createVNode("span", _hoisted_3, toDisplayString($setup.childCount), 1)
       ]) : createCommentVNode("", true),
       !$props.node.undeletable && $props.useRowDelete ? (openBlock(), createBlock("div", {
-        key: 3,
+        key: 2,
         class: "delete-icon",
         onClick: _cache[3] || (_cache[3] = withModifiers(($event) => $setup.removedRow($props.node), ["stop"]))
       }, [
@@ -286,14 +281,13 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
             "get-node": $props.getNode,
             "update-node": $props.updateNode,
             expandable: $props.expandable,
-            "show-prepend-node-text": $props.showPrependNodeText,
             onDeleteRow: $setup.removedRow,
             onNodeClick: _cache[5] || (_cache[5] = (item) => $setup.handleClick(item, true)),
             onToggleCheckbox: $setup.onToggleCheckbox,
             onNodeExpanded: $setup.onNodeExpanded
           }, {
-            prependNodeText: withCtx(({ node: slotNode }) => [
-              renderSlot(_ctx.$slots, "prependNodeText", { node: slotNode })
+            node: withCtx(({ node: slotNode }) => [
+              renderSlot(_ctx.$slots, "node", { node: slotNode })
             ]),
             childCount: withCtx(({ count, checkedCount, childs }) => [
               renderSlot(_ctx.$slots, "childCount", {
@@ -326,7 +320,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
               })
             ]),
             _: 2
-          }, 1032, ["node", "use-checkbox", "use-icon", "use-row-delete", "show-child-count", "gap", "expand-row-by-default", "indent-size", "row-hover-background", "set-node", "get-node", "update-node", "expandable", "show-prepend-node-text", "onDeleteRow", "onToggleCheckbox", "onNodeExpanded"])) : createCommentVNode("", true)
+          }, 1032, ["node", "use-checkbox", "use-icon", "use-row-delete", "show-child-count", "gap", "expand-row-by-default", "indent-size", "row-hover-background", "set-node", "get-node", "update-node", "expandable", "onDeleteRow", "onToggleCheckbox", "onNodeExpanded"])) : createCommentVNode("", true)
         ], 64);
       }), 128))
     ], 4)) : createCommentVNode("", true)
@@ -513,10 +507,6 @@ const _sfc_main = {
     expandable: {
       type: Boolean,
       default: true
-    },
-    showPrependNodeText: {
-      type: Boolean,
-      default: false
     }
   },
   emits: ["nodeClick", "nodeExpanded", "checkboxToggle", "update:nodes"],
@@ -570,8 +560,8 @@ const _sfc_main = {
     };
   }
 };
-const _withId = /* @__PURE__ */ withScopeId("data-v-2462c08c");
-pushScopeId("data-v-2462c08c");
+const _withId = /* @__PURE__ */ withScopeId("data-v-324b75f0");
+pushScopeId("data-v-324b75f0");
 const _hoisted_1 = { class: "tree" };
 popScopeId();
 const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data, $options) => {
@@ -600,7 +590,6 @@ const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data
             "get-node": $setup.getNode,
             "update-node": $setup.updateNode,
             expandable: $props.expandable,
-            "show-prepend-node-text": $props.showPrependNodeText,
             onDeleteRow: $setup.onDeleteRow,
             onNodeClick: $setup.onNodeClick,
             onNodeExpanded: $setup.onNodeExpanded,
@@ -613,6 +602,9 @@ const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data
                 indeterminate,
                 toggleCheckbox: () => $setup.onToggleCheckbox(slotNode)
               }, void 0, true)
+            ]),
+            node: _withId(({ node: slotNode }) => [
+              renderSlot(_ctx.$slots, "node", { node: slotNode }, void 0, true)
             ]),
             _: 2
           }, [
@@ -634,12 +626,6 @@ const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data
                 renderSlot(_ctx.$slots, "deleteIcon", {}, void 0, true)
               ])
             } : void 0,
-            $props.showPrependNodeText ? {
-              name: "prependNodeText",
-              fn: _withId(({ node: slotNode }) => [
-                renderSlot(_ctx.$slots, "prependNodeText", { node: slotNode }, void 0, true)
-              ])
-            } : void 0,
             $props.showChildCount ? {
               name: "childCount",
               fn: _withId(({ count, checkedCount, childs }) => [
@@ -650,11 +636,11 @@ const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data
                 }, void 0, true)
               ])
             } : void 0
-          ]), 1032, ["node", "use-checkbox", "use-icon", "use-row-delete", "show-child-count", "indent-size", "gap", "row-hover-background", "set-node", "get-node", "update-node", "expandable", "show-prepend-node-text", "onDeleteRow", "onNodeClick", "onNodeExpanded", "onToggleCheckbox"])) : createCommentVNode("", true)
+          ]), 1032, ["node", "use-checkbox", "use-icon", "use-row-delete", "show-child-count", "indent-size", "gap", "row-hover-background", "set-node", "get-node", "update-node", "expandable", "onDeleteRow", "onNodeClick", "onNodeExpanded", "onToggleCheckbox"])) : createCommentVNode("", true)
         ], 64);
       }), 128))
     ], 4)
   ]);
 });
-var Tree = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-2462c08c"]]);
+var Tree = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-324b75f0"]]);
 export { Tree as default, getNodeById, setNodeById, updateNodeById };

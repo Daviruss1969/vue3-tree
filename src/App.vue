@@ -1,6 +1,8 @@
 <template>
   <Tree
     v-model:nodes="data"
+    :use-checkbox="true"
+    @checkboxToggle="checkboxToggle($event)"
   >
     <template #node="{node}">
       <div v-if="node.data.button">
@@ -75,6 +77,11 @@ export default {
     return {
       data,
     };
+  },
+  methods: {
+    checkboxToggle(node) {
+      console.log(node);
+    },
   },
 };
 </script>

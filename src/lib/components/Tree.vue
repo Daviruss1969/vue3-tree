@@ -177,6 +177,7 @@ export default {
       const checked = !node.checked;
       updateNode(node.id, { checked });
       emit('nodeClick', { ...node, checked });
+      emit('checkboxToggle', { ...node, checked });
     };
 
     const onNodeClick = node => {

@@ -533,6 +533,7 @@ const _sfc_main = {
       const checked = !node.checked;
       updateNode(node.id, { checked });
       emit("nodeClick", { ...node, checked });
+      emit("checkboxToggle", { ...node, checked });
     };
     const onNodeClick = (node) => {
       emit("nodeClick", node);
@@ -560,8 +561,8 @@ const _sfc_main = {
     };
   }
 };
-const _withId = /* @__PURE__ */ withScopeId("data-v-324b75f0");
-pushScopeId("data-v-324b75f0");
+const _withId = /* @__PURE__ */ withScopeId("data-v-42c06668");
+pushScopeId("data-v-42c06668");
 const _hoisted_1 = { class: "tree" };
 popScopeId();
 const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data, $options) => {
@@ -642,5 +643,5 @@ const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data
     ], 4)
   ]);
 });
-var Tree = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-324b75f0"]]);
+var Tree = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-42c06668"]]);
 export { Tree as default, getNodeById, setNodeById, updateNodeById };

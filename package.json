@@ -48,14 +48,14 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.10.2",
     "@vue/compiler-sfc": "^3.0.5",
-    "eslint": "8.56.0",
+    "eslint": "8.47.0",
     "eslint-plugin-vue": "9.15.1",
     "sass": "1.64.1",
     "sass-loader": "10.1.1",
     "vite": "^2.9.16",
-    "vue": "3.4.15"
+    "vue": "3.3.4"
   },
   "peerDependencies": {
-    "vue": "3.4.15"
+    "vue": "3.3.4"
   }
 }

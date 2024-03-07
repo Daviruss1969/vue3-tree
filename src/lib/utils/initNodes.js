@@ -20,7 +20,7 @@ const initNodes = (data, parentNode) => {
     return newNode;
   });
 
-  return updateNodes(newData);
+  return newData;
 };
 
 export default initNodes;

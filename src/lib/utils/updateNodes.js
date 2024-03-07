@@ -1,9 +1,9 @@
 const updateNodes = nodes => nodes.map(node => {
+  console.log('updateNodes');
   if (!node.nodes?.length) {
     return { ...node, expanded: false };
   }
-
-  node.nodes = updateNodes(node.nodes);
+  // node.nodes = updateNodes(node.nodes);
 
   const everyChecked = node.nodes.every(item => item.checked);
   const someChecked = node.nodes.some(item => item.checked);

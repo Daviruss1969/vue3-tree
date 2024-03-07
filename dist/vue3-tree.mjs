@@ -329,10 +329,10 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
 var TreeRow = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render$1]]);
 const updateNodes = (nodes) => nodes.map((node) => {
   var _a;
+  console.log("updateNodes");
   if (!((_a = node.nodes) == null ? void 0 : _a.length)) {
     return { ...node, expanded: false };
   }
-  node.nodes = updateNodes(node.nodes);
   const everyChecked = node.nodes.every((item) => item.checked);
   const someChecked = node.nodes.some((item) => item.checked);
   const anyDeterminate = node.nodes.some((item) => item.indeterminate);
@@ -355,7 +355,7 @@ const initNodes = (data, parentNode) => {
     }
     return newNode;
   });
-  return updateNodes(newData);
+  return newData;
 };
 const searchNodes = (nodes, searchText) => {
   const getNodes = (result, node) => {
@@ -520,7 +520,7 @@ const _sfc_main = {
           newData.forEach(expandNodeWithChilds);
         }
       }
-      return updateNodes(newData);
+      return newData;
     });
     const getNode = (id) => getNodeById(props.nodes, id);
     const setNode = (id, node) => {
@@ -561,8 +561,8 @@ const _sfc_main = {
     };
   }
 };
-const _withId = /* @__PURE__ */ withScopeId("data-v-42c06668");
-pushScopeId("data-v-42c06668");
+const _withId = /* @__PURE__ */ withScopeId("data-v-530a65bc");
+pushScopeId("data-v-530a65bc");
 const _hoisted_1 = { class: "tree" };
 popScopeId();
 const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data, $options) => {
@@ -643,5 +643,5 @@ const _sfc_render = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data
     ], 4)
   ]);
 });
-var Tree = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-42c06668"]]);
+var Tree = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-530a65bc"]]);
 export { Tree as default, getNodeById, setNodeById, updateNodeById };

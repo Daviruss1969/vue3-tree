@@ -160,7 +160,8 @@ export default {
         }
       }
 
-      return updateNodes(newData);
+      // return updateNodes(newData);
+      return newData;
     });
 
     const getNode = id => getNodeById(props.nodes, id);
